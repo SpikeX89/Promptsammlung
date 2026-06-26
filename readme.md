@@ -1,38 +1,41 @@
 ## Handoff
 
 ```bash
-Whenever I say "wrap up" or context is running low, create/update 
-handoff.md in the project root with this exact structure:
+Das ist das Ende dieser Session. Schreibe jetzt eine echte Datei 
+handoff.md ins Projekt-Root-Verzeichnis (über das Dateisystem-Tool, 
+nicht nur als Text in der Antwort). Falls die Datei bereits existiert, 
+überschreibe sie komplett — kein Anhängen, keine Duplikate.
+
+Struktur (exakt einhalten):
 
 ## Goal
-[High-level objective + current sub-task]
+[Übergeordnetes Ziel + aktuelle Teilaufgabe]
 
 ## Status
-- What works right now (verified, not assumed)
-- What's broken / incomplete
+- Was nachweislich funktioniert (verifiziert, nicht angenommen)
+- Was kaputt/unvollständig ist
 
 ## Files in progress
-- path/to/file.ext — what's being changed and why (not just "editing X")
+- pfad/zur/datei.ext — was geändert wird und warum
 
 ## Failed attempts
-For each: what I tried, the exact error/output, and WHY it failed 
-(wrong assumption, missing dependency, etc.) — not just "didn't work"
+Für jeden Versuch: was probiert wurde, exakte Fehlermeldung/Output, 
+und WARUM es fehlgeschlagen ist — nicht nur "hat nicht geklappt"
 
 ## Environment state
-- Branch, uncommitted changes, running services/processes, 
-  relevant env vars (no secrets)
+- Branch, uncommitted changes, laufende Services/Prozesse, 
+  relevante Env-Variablen (keine Secrets)
 
 ## Next step
-The single most concrete next action, with the exact command if 
-possible — not "investigate further" but "run X, check Y"
+Die konkreteste nächste Aktion, wenn möglich mit exaktem Befehl
 
 ## Open questions
-Decisions that need my input before continuing
+Entscheidungen, die noch Input brauchen
 
-Rules:
-- If handoff.md already exists, overwrite it (don't append/duplicate)
-- Be concise — bullet points, no narrative prose
-- Don't guess at "what works" — only state what was actually verified
+Regeln:
+- Kurz, stichpunktartig, keine Fließtext-Prosa
+- "Status" nur mit verifizierten Fakten
+- Nach dem Schreiben kurz bestätigen: "handoff.md erstellt/aktualisiert"
 ```
 
 ```bash
