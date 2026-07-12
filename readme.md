@@ -1,10 +1,7 @@
 ## Handoff
 
 ```bash
-Das ist das Ende dieser Session. Schreibe jetzt eine echte Datei 
-handoff.md ins Projekt-Root-Verzeichnis (über das Dateisystem-Tool, 
-nicht nur als Text in der Antwort). Falls die Datei bereits existiert, 
-überschreibe sie komplett — kein Anhängen, keine Duplikate.
+Das ist das Ende dieser Session. Stelle jetzt eine Datei handoff.md zur Verfügung
 
 Struktur (exakt einhalten):
 
