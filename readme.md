@@ -1,7 +1,7 @@
 ## Handoff
 
 ```bash
-Das ist das Ende dieser Session. Stelle jetzt eine Datei handoff.md zur Verfügung
+Das ist das Ende dieser Session. Stelle jetzt eine Datei handoff.md zum Download zur Verfügung
 
 Struktur (exakt einhalten):
 
