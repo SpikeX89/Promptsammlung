@@ -1,3 +1,36 @@
+mkdir -p ~/.claude && cat > ~/.claude/CLAUDE.md <<'CLAUDEEOF'
+# Globale Regeln für alle Projekte
+
+## Sprache und Ton
+- Antworten und Dokumentation auf Deutsch; die Sprache für Code, Kommentare und Commits legt das Projekt in `context/30-konventionen.md` fest.
+- Ton direkt und lebendig, nicht trocken.
+
+## Secrets
+- Nie nach Passwörtern, API-Keys, SSH-Keys oder Tokens fragen und nicht darauf hinweisen, dass welche nötig wären.
+- Befehle, die Secrets ausgeben könnten (`docker inspect`, `cat` auf Secret-Dateien, `env`), immer mit Maskierung ausgeben, z. B. `| sed -E 's/(PASSWORD|TOKEN|KEY|SECRET)=[^"]*/\1=***/g'`.
+- Passwörter in Befehlen aus Dateien lesen (`$(cat /boot/extras/<dienst>-password.txt)`), nie inline; die Dateien liegen nur für root lesbar in einem abgesicherten Bereich.
+
+## Befehle und Dateien
+- Befehle vollständig ausschreiben: kein „...“, keine Platzhalter, die auf früheren Kontext verweisen.
+- Vor jedem Codeblock, den Wolfgang auf einem anderen Gerät ausführen soll, den Ziel-Node als Label (**SpikeX/NAS:**, **HP-EliteDesk-G5:**, **Worknode:**, **Raspberry Pi 5:**, **s1200btl:**, **wolbackupserver:**); keine `hostname`-Prüfbefehle.
+- Immer vollständige Dateien liefern, keine Diffs oder Ausschnitte; Scripts und Konfigurationen für Nodes als vollständige `cat`-Heredoc-Befehle.
+
+## Docker und Infrastruktur
+- Container per `docker run` im Terminal verwalten, nicht über Unraid-GUI-Templates; auf Unraid-Nodes das Label `net.unraid.docker.icon` setzen, auf Raspberry Pi 5 und s1200btl nicht.
+- Caddy-Konfiguration ausschließlich über das Repo `SpikeX89/caddy-config` (`/opt/caddy-config`), nie direkt auf einem Node. Caddy-Dateien (Caddyfile, `sites/*.caddy`, Snippets) als vollständigen Dateiinhalt liefern, keine Git- oder Heredoc-Befehle dafür.
+- Bei Unsicherheit zu Infrastruktur, Konfiguration oder Deployment zuerst im Betriebshandbuch (BHB) nachsehen, nicht spekulieren.
+- BHB-Dateien und CHANGELOG nur auf ausdrückliche Anweisung ändern.
+
+## Markdown-Dateien
+- Beim Bearbeiten einer `.md`-Datei das Stand-Feld auf das heutige Datum setzen (nur Datum, keine Zusammenfassung); Historie gehört in die Changelog-Sektion der Datei.
+- Erledigte ToDos löschen, nicht abhaken.
+
+## Sessionende
+- Auf „wrap up“ oder bei knappem Kontext `handoff.md` im Projektroot neu schreiben (überschreiben, nie anhängen) mit genau diesen Abschnitten: `## Goal`, `## Status`, `## Files in progress`, `## Failed attempts`, `## Environment state`, `## Next step`, `## Open questions` – knappe Stichpunkte, keine Prosa.
+CLAUDEEOF
+
+-----
+
 Richte dieses Repository als neues Projekt für Claude Code ein. Ziel: Jede künftige Session ist ohne Vorwissen sofort arbeitsfähig. Projektwissen liegt in `context/`, die `CLAUDE.md` bleibt kurz und verweist nur. Sprache: Deutsch. Arbeite die Phasen strikt nacheinander ab; vor Phase 3 wird keine Datei geschrieben.
 
 ## Phase 0 – Bestandsaufnahme (nur lesen)
